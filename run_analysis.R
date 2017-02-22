@@ -79,44 +79,42 @@ full.df.mean.sd <- select(full.df, feature.mean.sd.position)
 # This is to do step 3 from project instruction: 3. Uses descriptive activity names to 
 # name the activities in the data set 
 ########
+# read and add activity label to dataset
 # read activity labels for train dataset
 train.activity.file <- "./train/y_train.txt"
 train.activity.label.df <- read.table(train.activity.file, header=FALSE)
-#names(train.activity.label.df) <- "activity.label"
-
 # read activity labels for test dataset
 test.activity.file <- "./test/y_test.txt"
 test.activity.label.df <- read.table(test.activity.file, header=FALSE)
-#names(test.activity.label.df) <- "activity.label"
-
 # combine train and test activity label datasets to be one dataset
 activity.label.df <- rbind(train.activity.label.df, test.activity.label.df)
+names(activity.label.df) <- "activity.label"
+
+# attach activity labels to full.df.mean.sd data frame 
+full.df.mean.sd <- cbind(full.df.mean.sd, activity.label=activity.label.df$activity.label)
+
+# read and add subject to dataset
+# read subjects for train dataset
+train.subject.file <- "./train/subject_train.txt"
+train.subject.df <- read.table(train.subject.file, header=FALSE)
+# read subjects for test dataset
+test.subject.file <- "./test/subject_test.txt"
+test.subject.df <- read.table(test.subject.file, header=FALSE)
+# combine train and test subject datasets to be one dataset
+subject.df <- rbind(train.subject.df, test.subject.df)
+# attach subject to full.df.mean.sd dataset
+names(subject.df) <- "subject"
+full.df.mean.sd <- cbind(full.df.mean.sd, subject=subject.df$subject)
 
 # read and create activity names dataset
 activity.name.file <- "./activity_labels.txt"
 activity.name.df <- read.table(activity.name.file, header=FALSE)
+names(activity.name.df) <- c("label","activity.name")
 
-# merge activity label dataset and activity names dataset 
-activity.df <- merge(activity.label.df, activity.name.df, by.x="V1", by.y="V1")
-
-# attach activity names to full.df.mean.sd data frame - this will give each record a human readable
-# activity description
-full.df.mean.sd <- cbind(full.df.mean.sd, activity.name=activity.df$V2)
-
-# Finally add subject to dataset
-# read subjects for train dataset
-train.subject.file <- "./train/subject_train.txt"
-train.subject.df <- read.table(train.subject.file, header=FALSE)
-
-# read subjects for test dataset
-test.subject.file <- "./test/subject_test.txt"
-test.subject.df <- read.table(test.subject.file, header=FALSE)
-
-# combine train and test subject datasets to be one dataset
-subject.df <- rbind(train.subject.df, test.subject.df)
-
-# attach subject to full.df.mean.sd dataset
-full.df.mean.sd <- cbind(full.df.mean.sd, subject=subject.df$V1)
+# merge dataset and activity names dataset. This will give each 
+#record a human readable activity description 
+full.df.mean.sd <- merge(full.df.mean.sd, activity.name.df, by.x="activity.label", by.y="label")
+full.df.mean.sd <- full.df.mean.sd[,-1]
 
 ########
 # 4. Give column names
@@ -124,13 +122,14 @@ full.df.mean.sd <- cbind(full.df.mean.sd, subject=subject.df$V1)
 # the data set with descriptive variable names. 
 ########
 # use feature.mean.sd.names created in section 2 to name columns
-feature.mean.sd.names <- gsub("-", "", feature.mean.sd.names)
-feature.mean.sd.names <- c(feature.mean.sd.names, "activity.name")
-feature.mean.sd.names <- c(feature.mean.sd.names, "subject")
-names(full.df.mean.sd) <- feature.mean.sd.names
+feature.mean.sd.names2 <- gsub("-", "", feature.mean.sd.names)
+feature.mean.sd.names2 <- c(feature.mean.sd.names2, "subject")
+feature.mean.sd.names2 <- c(feature.mean.sd.names2, "activity.name")
+feature.mean.sd.names2
+names(full.df.mean.sd) <- feature.mean.sd.names2
 
 ########
-# 5. Give column names
+# 5. create new dataset
 # This is to do step 5 from project instruction: 5. From the data set in step 4, 
 # creates a second, independent tidy data set with the average of each variable 
 # for each activity and each subject. 
