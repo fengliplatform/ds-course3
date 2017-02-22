@@ -33,17 +33,17 @@ This file will describe how the data analysis and clean up have been done. Also 
    
 ## variables in this tidy data set
  [1] "activity.name" 
-	Factor. Descriptive names for all activities including
-	WALKING
+    Factor. Descriptive names for all activities including
+    WALKING
     WALKING_UPSTAIRS
     WALKING_DOWNSTAIRS
     SITTING
     STANDING
     LAYING 
  [2] "subject"
-   Integer subject id. Range 1-30, inclusive. 
+    Integer subject id. Range 1-30, inclusive. 
  [3] "activity.label"
-   Integer activity labels. 
+    Integer activity labels. 
 	1 WALKING
 	2 WALKING_UPSTAIRS
 	3 WALKING_DOWNSTAIRS
@@ -57,7 +57,7 @@ Following variables are measures.
    * X|Y|Z: 3-axial measurement
    * mean: mean of the variable
    * std: standard deviation of the variable
-   * see [data set link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) for more details   
+   * see [UCI data set link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) for more details   
  [4] "tBodyAcc.mean...X"              
  [5] "tBodyAcc.mean...Y"              
  [6] "tBodyAcc.mean...Z"              
