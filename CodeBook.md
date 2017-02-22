@@ -52,12 +52,12 @@ This file will describe how the data analysis and clean up have been done. Also 
 	   + 6 LAYING 
 
 Following variables are measures. 
-  t: time domain variables
-  f: frequency domain variables
-  X|Y|Z: 3-axial measurement
-  mean: mean of the variable
-  std: standard deviation of the variable
-  see [UCI data set link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) for more details   
+  *t: time domain variables*
+  *f: frequency domain variables*
+  *X|Y|Z: 3-axial measurement*
+  *mean: mean of the variable*
+  *std: standard deviation of the variable*
+  *see [UCI data set link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) for more details*   
 
 * "tBodyAcc.mean...X"              
 * "tBodyAcc.mean...Y"              
