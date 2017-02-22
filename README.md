@@ -4,8 +4,7 @@
 The purpose of this course project is to collect, work with, and clean a data set and to prepare tidy data 
 that can be used for later analysis. The dataset used 
 for this project is called "Human Activity Recognition Using Smartphones Dataset". More
-information about this data set can be found at UCI link:
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+information about this data set can be found at [UCI link](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ## Repo contents
 This repository includes three files:
