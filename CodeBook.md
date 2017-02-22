@@ -51,7 +51,7 @@ This file will describe how the data analysis and clean up have been done. Also 
 	   + 5 STANDING
 	   + 6 LAYING 
 
-Following variables are measures without unit as they are already normalized to 0-1:  
+Following variables are measures without unit as they are already normalized and bounded within [-1,1]:  
   *t: time domain variables*  
   *f: frequency domain variables*  
   *X|Y|Z: 3-axial measurement*  
