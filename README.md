@@ -20,4 +20,4 @@ This repository includes three files:
 `source("run_analysis.R")`
     + This script will download data set in current directory, does analysis and generate required tidy data set called "meandata.txt".
     + Following command can be used to read meandata.txt.
-`read.table("meandata.txt", sep=" ", header=TRUE)`
+`tidy.df <- read.table("meandata.txt", sep=" ", header=TRUE)`
