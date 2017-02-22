@@ -111,7 +111,6 @@ names(activity.name.df) <- c("label","activity.name")
 # merge dataset and activity names dataset. This will give each 
 # record a human readable activity description 
 full.df.mean.sd <- merge(full.df.mean.sd, activity.name.df, by.x="activity.label", by.y="label")
-full.df.mean.sd <- full.df.mean.sd[,-1]
 print("3. Attach activity names and subject to the data frame...done")
 
 ########
@@ -124,6 +123,7 @@ print("4. Label the data set with descriptive variable names...")
 feature.mean.sd.names2 <- gsub("-", ".", feature.mean.sd.names)
 feature.mean.sd.names2 <- c(feature.mean.sd.names2, "subject")
 feature.mean.sd.names2 <- c(feature.mean.sd.names2, "activity.name")
+feature.mean.sd.names2 <- c("activity.label", feature.mean.sd.names2)
 feature.mean.sd.names2
 names(full.df.mean.sd) <- feature.mean.sd.names2
 print("4. Label the data set with descriptive variable names...done")
@@ -151,7 +151,8 @@ new.df <- full.df.mean.sd %>%
   summarize_each(funs(mean(., na.rm=TRUE)))
 
 # create dataset file to submit
-write.table(new.df, file="../meandata.txt", sep=" ", row.names=FALSE)
+setwd("../")
+write.table(new.df, file="meandata.txt", sep=" ", row.names=FALSE)
 print("5. Create a second, independent tidy data set with the average of each variable for each activity and each subject...done")
 
 
