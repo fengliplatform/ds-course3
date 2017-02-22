@@ -31,7 +31,7 @@ This file will describe how the data analysis and clean up have been done. Also 
    + convert measure values from factor to numeric
    + use `group_by` and `summarize_each` to create required tidy data set and write to file `meandata.txt`
    
-## variables in this tidy data set
+## Variables in this tidy data set
 * "activity.name" 
     - Factor. Descriptive names for all activities including
        + WALKING
@@ -51,7 +51,7 @@ This file will describe how the data analysis and clean up have been done. Also 
 	   + 5 STANDING
 	   + 6 LAYING 
 
-Following variables are measures:
+Following variables are measures without unit as they are already normalized to 0-1:  
   *t: time domain variables*
   *f: frequency domain variables*
   *X|Y|Z: 3-axial measurement*
